@@ -123,6 +123,19 @@ function setBotResponse(response) {
                         }
                     }
                 }
+                if (Object.hasOwnProperty.call(response[i], "attachment")) {
+                    if (response[i].attachment != null) {
+                        if (response[i].attachment.type === "audio") {
+                            // check if the attachment type is "video"
+                            const video_url = response[i].attachment.payload.src;
+
+                            const BotResponse = `<div class="audio-container"> <audio controls><source src="${video_url}" type="audio/mpeg">
+                            
+                            </audio> </div>`;
+                            $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+                        }
+                    }
+                }
                 // check if the response contains "custom" message
                 if (Object.hasOwnProperty.call(response[i], "custom")) {
                     const { payload } = response[i].custom;
