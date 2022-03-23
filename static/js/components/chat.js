@@ -313,7 +313,7 @@ function actionTrigger() {
 // eslint-disable-next-line no-unused-vars
 function customActionTrigger() {
     $.ajax({
-        url: "http://170.187.252.236:5000/webhooks/rest/webhook",
+        url: "http://askairos.com",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
@@ -328,7 +328,8 @@ function customActionTrigger() {
         },
         error(xhr, textStatus) {
             // if there is no response from rasa server
-            setBotResponse("");
+            setBotResponse([{"text": "Hi this is Sara.<br>I'm here to answer your queries on UGC.<br>I can answer questions in <b>any language</b> you ask.<br>Try hitting me...😝"}]);
+
             console.log("Error from bot end: ", textStatus);
             $("#userInput").prop("disabled", false);
         },
