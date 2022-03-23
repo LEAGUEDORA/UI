@@ -313,7 +313,7 @@ function actionTrigger() {
 // eslint-disable-next-line no-unused-vars
 function customActionTrigger() {
     $.ajax({
-        url: "http://170.187.252.236:5005/webhooks/rest/webhook",
+        url: "http://170.187.252.236:5000/webhooks/rest/webhook",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
@@ -323,7 +323,7 @@ function customActionTrigger() {
         success(botResponse, status) {
             console.log("Response from Rasa: ", botResponse, "\nStatus: ", status);
 
-            setBotResponse([{"text": "Hi this is Sara, national language conversational AI chatbot."}]);
+            setBotResponse([{"text": "Hi this is Sara.\nI'm here to answer your queries on UGC.\nI can answer questions in any language.\nTry hitting me...."}]);
             $("#userInput").prop("disabled", false);
         },
         error(xhr, textStatus) {
