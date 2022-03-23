@@ -313,7 +313,7 @@ function actionTrigger() {
 // eslint-disable-next-line no-unused-vars
 function customActionTrigger() {
     $.ajax({
-        url: "http://askairos.com",
+        url: "https://askairos.com",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
