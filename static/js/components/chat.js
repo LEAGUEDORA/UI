@@ -280,7 +280,7 @@ function actionTrigger() {
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
-            name: action_name,
+            name: acton_name,
             policy: "MappingPolicy",
             confidence: "0.98",
         }),
@@ -313,21 +313,17 @@ function actionTrigger() {
 // eslint-disable-next-line no-unused-vars
 function customActionTrigger() {
     $.ajax({
-        url: "http://localhost:5055/webhook/",
+        url: "http://170.187.252.236:5005/webhooks/rest/webhook",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({
-            next_action: action_name,
-            tracker: {
-                sender_id,
-            },
+            "message" : "/greet",
+            "sender" : sender_id,
         }),
         success(botResponse, status) {
             console.log("Response from Rasa: ", botResponse, "\nStatus: ", status);
 
-            if (Object.hasOwnProperty.call(botResponse, "responses")) {
-                setBotResponse(botResponse.responses);
-            }
+            setBotResponse([{"text": "Hi this is Sara, national language conversational AI chatbot."}]);
             $("#userInput").prop("disabled", false);
         },
         error(xhr, textStatus) {
